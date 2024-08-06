@@ -116,16 +116,14 @@ def semantic_search(query):
     print(scores.index(min(scores)))
     most_similar_doc = combined_list[scores.index(min(scores))]
     print("Most similar document", most_similar_doc)
-    return ls1
+    ranked = sorted(ls1, key=lambda x: x[1])
+    return ranked[0], ranked[1], ranked[2]
 
 output = semantic_search("لذهب بعشرة آلاف دولار؟")
 
-ranked = sorted(output, key=lambda x: x[1])
-ranked[:3]
 
 import gradio as gr
 
 demo = gr.Interface(fn=semantic_search,inputs = ["text"], outputs=["text", "text", "text"])
 if __name__ == "__main__":
     demo.launch()
-
