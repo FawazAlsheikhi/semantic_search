@@ -1,0 +1,5 @@
+sentence_transformers
+nltk
+scipy
+gradio
+datasets
